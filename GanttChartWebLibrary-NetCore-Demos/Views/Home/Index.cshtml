@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h5>Gantt charts</h5>
+        <ul>
+            <li>@Html.ActionLink("Main features", "Index", "GanttChartViewMainFeatures")</li>
+            <li>@Html.ActionLink("Custom columns", "Index", "GanttChartViewCustomColumns")</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h5>Schedule charts</h5>
+        <ul>
+            <li>@Html.ActionLink("Main features", "Index", "ScheduleChartViewMainFeatures")</li>
+        </ul>
+        <h5>Load charts</h5>
+        <ul>
+            <li>@Html.ActionLink("Main features", "Index", "LoadChartViewMainFeatures")</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h5>Network diagrams</h5>
+        <ul>
+            <li>@Html.ActionLink("Main features", "Index", "NetworkDiagramViewMainFeatures")</li>
+        </ul>
+        <h5>PERT charts</h5>
+        <ul>
+            <li>@Html.ActionLink("Main features", "Index", "PertChartViewMainFeatures")</li>
+        </ul>
+    </div>
+</div>

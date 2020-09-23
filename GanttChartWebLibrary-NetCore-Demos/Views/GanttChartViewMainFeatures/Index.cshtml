@@ -1,1 +1,21 @@
-﻿Hello world!
+﻿@using DlhSoft.Web.Mvc;
+@{
+    ViewBag.Title = "GanttChartView – Main features";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @(Html.GanttChartView(component =>
+        {
+            // Settings.
+            component.Columns[(int)ColumnType.Content].Header = "Activity";
+            // CSS classes.
+            component.StandardBarCssClass = "dsgc-standard-bar";
+            component.StandardCompletedBarCssClass = "dsgc-standard-completed-bar";
+            // Item change action set up (post).
+            component.ItemChangeAction = "GanttChartViewMainFeatures/UpdateGanttChartItem";
+            // Client side settings.
+            component.InitializingClientCode = "initializeGanttChartTheme(control.settings, 'Blue-navy'); initializeGanttChartTemplates(control.settings, 'Blue-navy');";
+        }))
+    </div>
+</div>

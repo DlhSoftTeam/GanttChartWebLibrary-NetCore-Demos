@@ -5,17 +5,39 @@
 
 <div class="row">
     <div class="col-md-12">
+        <div class="ribbonContainer">
+            <div class="ribbonPanel">
+                <div class="ribbonHeader">Items</div>
+                <div class="ribbonCommandsArea">
+                    <div class="ribbonCommand"><a href="javascript:" title="Add new item" onclick="addNewGanttChartItem()"><img src="~/Images/AddNew.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Insert new item" onclick="insertNewGanttChartItem()"><img src="~/Images/InsertNew.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Decrease indentation for selected item" onclick="decreaseGanttChartItemIndentation()"><img src="~/Images/DecreaseIndentation.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Increase indentation for selected item" onclick="increaseGanttChartItemIndentation()"><img src="~/Images/IncreaseIndentation.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Remove selected item" onclick="deleteGanttChartItem()"><img src="~/Images/Delete.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Set custom bar color to selected item" onclick="setCustomBarColorToItem()"><img src="~/Images/SetColor.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Copy selected item" onclick="copyItem()"><img src="~/Images/Copy.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Paste after selected item" onclick="pasteItem()"><img src="~/Images/Paste.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Move selected item up" onclick="moveItemUp()"><img src="~/Images/MoveUp.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:" title="Move selected item down" onclick="moveItemDown()"><img src="~/Images/MoveDown.png" /></a></div>
+                </div>
+            </div>
+        </div>
+
         @(Html.GanttChartView(component =>
         {
-            // Settings.
-            component.Columns[(int)ColumnType.Content].Header = "Activity";
-            // CSS classes.
-            component.StandardBarCssClass = "dsgc-standard-bar";
-            component.StandardCompletedBarCssClass = "dsgc-standard-completed-bar";
-            // Item change action set up (post).
+            // Optionally, add supplemental columns. Note that columns obtained using get*Template client side method calls are using invariant culture, tough.
+            component.Columns.Insert(2, new Column { Header = string.Empty, Width = 40, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getIndexColumnTemplate()(item);", AllowUserToResize = false });
+            component.Columns.Insert(5, new Column { Header = "Effort (h)", Width = 80, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getTotalEffortColumnTemplate(64)(item);" });
+            component.Columns.Insert(6, new Column { Header = "Duration (d)", Width = 80, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getDurationColumnTemplate(64, 8)(item);" });
+            component.Columns.Insert(10, new Column { Header = "%", Width = 80, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getCompletionColumnTemplate(64)(item);" });
+            component.Columns.Insert(11, new Column { Header = "Predecessors", Width = 100, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getPredecessorsColumnTemplate(84)(item);" });
+            component.Columns.Add(new Column { Header = "Cost ($)", Width = 100, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getCostColumnTemplate(84)(item);" });
+            component.Columns.Add(new Column { Header = "Est. start", Width = 140, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getBaselineStartColumnTemplate(124, true, true, 8 * 60 * 60 * 1000)(item);" }); // 8 AM
+            component.Columns.Add(new Column { Header = "Est. finish", Width = 140, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getBaselineFinishColumnTemplate(124, true, true, 16 * 60 * 60 * 1000)(item);" }); // 4 PM
+
+            component.Height = "450px";
             component.ItemChangeAction = "GanttChartViewMainFeatures/UpdateGanttChartItem";
-            // Client side settings.
-            component.InitializingClientCode = "initializeGanttChartTheme(control.settings, 'Blue-navy'); initializeGanttChartTemplates(control.settings, 'Blue-navy');";
+            component.InitializingClientCode = "initializeGanttChart('GanttChartViewMainFeatures', control, 'Blue-navy');";
         }))
     </div>
 </div>

@@ -1,17 +1,63 @@
-﻿.dsgc-standard-bar {
-    fill: #0094ff;
-    stroke: #0094ff;
+﻿.ribbonContainer {
+    overflow: auto;
+    background-color: #90909060;
+    border-bottom: 1px solid White;
+    font-family: Tahoma, Arial;
+    font-size: 12px;
+}
+.ribbonPanel {
+    float: left;
+    overflow: auto;
+    background-color: #a0a0a060;
+    border-right: 1px solid #c0c0c060;
+}
+.ribbonHeader {
+    background-color: #80808060;
+    padding: 5px;
+    color: white;
+}
+.ribbonCommandsArea {
+    padding: 2px 3px;
+}
+.ribbonCommand {
+    float: left;
+    margin: 4px;
+}
+.ribbonCommand img {
+    border: 0px;
+}
+.extraPanel {
+    background-color: #a0a0a060;
+    border-bottom: 1px solid White;
+    color: White;
+    font-family: Tahoma, Arial;
+    font-size: 12px;
+}
+.extraPanelHeader {
+    background-color: #80808060;
+    padding: 6px;
+}
+.extraPanelContent {
+    padding: 1px 6px;
+    color: Black;
+}
+.extraPanelCommandsArea {
+    float: right;
+    padding: 5px 6px;
+}
+.extraPanel a {
+    color: White;
+}
+.toggle {
+    padding: 2px;
+    margin: -2px;
+    opacity: 0.95;
+}
+.pressed {
+    background-color: #e0e0e060;
+    opacity: 1;
 }
 
-.dsgc-standard-completed-bar {
-    fill: black;
-    stroke: black;
-}
-
-.dslc-allocation-bar {
-    fill: #0094ff;
-}
-
-.dslc-over-allocation-bar {
-    fill: #ff6a00;
+svg {
+    vertical-align: initial;
 }

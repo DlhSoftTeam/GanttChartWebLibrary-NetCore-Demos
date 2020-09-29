@@ -31,11 +31,32 @@ namespace GanttChartWebLibrary_NetCore_Demos.Controllers
             return View(model: items);
         }
 
+        public ActionResult CreateNewGanttChartItem(int index)
+        {
+            // Placeholder to prepare new items, e.g. create entities in the data store. Will be followed by an Update call.
+            Debug.WriteLine($"New item created at index {index}.");
+            return Ok();
+        }
+
         public ActionResult UpdateGanttChartItem(GanttChartItem item)
         {
             // Placeholder to handle changes, e.g. save them to the data store.
             // Note: Characters '<' and '>' are automatically replaced on client side with HTML entities '&lt;' and '&gt;' within text content (e.g. item.Content) to pass security gates upon posting.
             Debug.WriteLine($"Item {item.Content} at index {item.ItemIndex} has been updated.");
+            return Ok();
+        }
+
+        public ActionResult MoveGanttChartItem(int fromIndex, int toIndex)
+        {
+            // Placeholder to move items, e.g. move entities in the data store.
+            Debug.WriteLine($"Item moved from index {fromIndex} to {toIndex}.");
+            return Ok();
+        }
+
+        public ActionResult DeleteGanttChartItem(int index)
+        {
+            // Placeholder to delete items, e.g. remove them from the data store.
+            Debug.WriteLine($"Item at index {index} was deleted.");
             return Ok();
         }
     }

@@ -50,11 +50,11 @@
 }
 .toggle {
     padding: 2px;
-    margin: -2px;
+    margin: 2px;
     opacity: 0.95;
 }
 .pressed {
-    background-color: #e0e0e060;
+    background-color: #e0e0e0;
     opacity: 1;
 }
 

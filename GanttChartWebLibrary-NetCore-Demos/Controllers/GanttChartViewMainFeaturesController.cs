@@ -12,6 +12,9 @@ namespace GanttChartWebLibrary_NetCore_Demos.Controllers
 {
     public class GanttChartViewMainFeaturesController : Controller
     {
+        private static readonly DateTime date = DateTime.Today;
+        private static readonly int year = date.Year, month = date.Month;
+
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -28,9 +31,17 @@ namespace GanttChartWebLibrary_NetCore_Demos.Controllers
             items[4].Predecessors.Add(new PredecessorItem { Item = items[3] });
             for (var i = 4; i < 16; i++)
                 items.Add(new GanttChartItem { Content = $"Task {i}", Start = DateTime.Today.AddDays(i), Finish = DateTime.Today.AddDays(i * 2) });
+            items[9].Finish = items[9].Finish + TimeSpan.FromDays(2);
+            items[9].AssignmentsContent = "Resource 1";
+            items[10].Predecessors = new List<PredecessorItem> { new PredecessorItem { Item = items[9] } };
+            items[6].BaselineStart = new DateTime(year, month, 10, 8, 0, 0);
+            items[6].BaselineFinish = new DateTime(year, month, 11, 16, 0, 0);
+            items[7].BaselineStart = new DateTime(year, month, 8, 8, 0, 0);
+            items[7].BaselineFinish = new DateTime(year, month, 11, 16, 0, 0);
+            items[8].BaselineStart = new DateTime(year, month, 12, 8, 0, 0);
             return View(model: items);
         }
-
+        
         public ActionResult CreateNewGanttChartItem(int index)
         {
             // Placeholder to prepare new items, e.g. create entities in the data store. Will be followed by an Update call.

@@ -20,12 +20,8 @@ namespace GanttChartWebLibrary_NetCore_Demos.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            // return View();
+            return RedirectToAction("Index", "GanttChartViewMainFeatures");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

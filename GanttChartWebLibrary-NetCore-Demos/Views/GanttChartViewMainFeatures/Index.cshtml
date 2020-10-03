@@ -1,4 +1,5 @@
-﻿@using DlhSoft.Web.Mvc;
+﻿@using System.Drawing;
+@using DlhSoft.Web.Mvc;
 @{
     ViewBag.Title = "GanttChartView – Main features";
 }
@@ -9,16 +10,51 @@
             <div class="ribbonPanel">
                 <div class="ribbonHeader">Items</div>
                 <div class="ribbonCommandsArea">
-                    <div class="ribbonCommand"><a href="javascript:" title="Add new item" onclick="addNewGanttChartItem()"><img src="~/Images/AddNew.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Insert new item" onclick="insertNewGanttChartItem()"><img src="~/Images/InsertNew.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Decrease indentation for selected item" onclick="decreaseGanttChartItemIndentation()"><img src="~/Images/DecreaseIndentation.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Increase indentation for selected item" onclick="increaseGanttChartItemIndentation()"><img src="~/Images/IncreaseIndentation.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Remove selected item" onclick="deleteGanttChartItem()"><img src="~/Images/Delete.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Set custom bar color to selected item" onclick="setCustomBarColorToItem()"><img src="~/Images/SetColor.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Copy selected item" onclick="copyItem()"><img src="~/Images/Copy.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Paste after selected item" onclick="pasteItem()"><img src="~/Images/Paste.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Move selected item up" onclick="moveItemUp()"><img src="~/Images/MoveUp.png" /></a></div>
-                    <div class="ribbonCommand"><a href="javascript:" title="Move selected item down" onclick="moveItemDown()"><img src="~/Images/MoveDown.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:addNewGanttChartItem();" title="Add new item"><img src="~/Images/AddNew.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:insertNewGanttChartItem();" title="Insert new item"><img src="~/Images/InsertNew.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:decreaseGanttChartItemIndentation();" title="Decrease indentation for selected item"><img src="~/Images/DecreaseIndentation.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:increaseGanttChartItemIndentation();" title="Increase indentation for selected item"><img src="~/Images/IncreaseIndentation.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:deleteGanttChartItem();" title="Remove selected item"><img src="~/Images/Delete.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:setCustomBarColorToItem();" title="Set custom bar color to selected item"><img src="~/Images/SetColor.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:copyItem();" title="Copy selected item"><img src="~/Images/Copy.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:pasteItem();" title="Paste after selected item"><img src="~/Images/Paste.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:moveItemUp();" title="Move selected item up"><img src="~/Images/MoveUp.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:moveItemDown();" title="Move selected item down"><img src="~/Images/MoveDown.png" /></a></div>
+                </div>
+            </div>
+            <div class="ribbonPanel">
+                <div class="ribbonHeader">Items</div>
+                <div class="ribbonCommandsArea">
+                    <div class="ribbonCommand"><a href="javascript:setCustomScales();" title="Set custom scales"><img src="~/Images/CustomScales.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:zoomIn();" title="Zoom in"><img src="~/Images/ZoomIn.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:decreaseTimelinePage();" title="Move towards past"><img src="~/Images/DecreaseTimelinePage.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:increaseTimelinePage();" title="Move towards future"><img src="~/Images/IncreaseTimelinePage.png" /></a></div>
+                </div>
+            </div>
+            <div class="ribbonPanel">
+                <div class="ribbonHeader">Project tools</div>
+                <div class="ribbonCommandsArea">
+                    <div class="ribbonCommand toggle pressed" id="toggleBaselineCommand"><a href="javascript:toggleBaseline();" title="Hide/display baseline"><img src="~/Images/Baseline.png" /></a></div>
+                    <div class="ribbonCommand toggle" id="highlightCriticalPathCommand"><a href="javascript:highlightCriticalPath();" title="Highlight/refresh critical path"><img src="~/Images/CriticalPath.png" /></a></div>
+                    <div class="ribbonCommand toggle pressed" id="toggleDependencyConstraintsCommand"><a href="javascript:toggleDependencyConstraints();" title="Disable/enable automatic scheduling"><img src="~/Images/DependencyConstraints.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:levelResources();" title="Level resources"><img src="~/Images/LevelResources.png" /></a></div>
+                </div>
+            </div>
+            <div class="ribbonPanel">
+                <div class="ribbonHeader">Other views</div>
+                <div class="ribbonCommandsArea">
+                    <div class="ribbonCommand"><a href="javascript:scheduleChart();" title="Schedule Chart"><img src="Images/ScheduleChart.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:loadChart();" title="Load Chart"><img src="Images/LoadChart.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:pertChart();" title="PERT Chart"><img src="Images/PertChart.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:networkDiagram();" title="Network Diagram"><img src="Images/NetworkDiagram.png" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:projectStatistics();" title="Project statistics"><img src="Images/ProjectStatistics.png" /></a></div>
+                </div>
+            </div>
+            <div class="ribbonPanel">
+                <div class="ribbonHeader">XML and printing</div>
+                <div class="ribbonCommandsArea">
+                    <div class="ribbonCommand"><a href="javascript:saveProjectXml();" title="Export Project XML content"><img src="Images/SaveProjectXml.png" alt="Export Project XML" /></a></div>
+                    <div class="ribbonCommand"><a href="javascript:print();" title="Print"><img src="Images/Print.png" alt="Print" /></a></div>
                 </div>
             </div>
         </div>
@@ -35,9 +71,74 @@
             component.Columns.Add(new Column { Header = "Est. start", Width = 140, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getBaselineStartColumnTemplate(124, true, true, 8 * 60 * 60 * 1000)(item);" }); // 8 AM
             component.Columns.Add(new Column { Header = "Est. finish", Width = 140, CellTemplateClientCode = "return DlhSoft.Controls.GanttChartView.getBaselineFinishColumnTemplate(124, true, true, 16 * 60 * 60 * 1000)(item);" }); // 4 PM
 
+            component.IsBaselineVisible = true;
+            component.AreTaskDependencyConstraintsEnabled = true;
+
+            component.AlternativeRowBackColor = Color.FromArgb(0xff, 0xf8, 0xf8, 0xf8);
+            component.SelectedItemBackColor = Color.LightSkyBlue;
+
             component.Height = "450px";
             component.ItemChangeAction = "GanttChartViewMainFeatures/UpdateGanttChartItem";
-            component.InitializingClientCode = "initializeGanttChart('GanttChartViewMainFeatures', control, 'Blue-navy');";
+            component.InitializingClientCode = "initializeGanttChart('GanttChartViewMainFeatures', control, 'Generic-bright');";
         }))
+
+        <div id="scheduleChartPanel" style="display: none">
+            <div class="extraPanel">
+                <div class="extraPanelCommandsArea">
+                    <div><a href="javascript:closeScheduleChartView();">Close</a></div>
+                </div>
+                <div class="extraPanelHeader">Schedule Chart</div>
+            </div>
+            <div id="scheduleChartView" style="height: 190px">...</div>
+        </div>
+        <div id="loadChartPanel" style="display: none">
+            <div class="extraPanel">
+                <div class="extraPanelCommandsArea">
+                    <div><a href="javascript:closeLoadChartView();">Close</a></div>
+                </div>
+                <div class="extraPanelHeader">Load Chart</div>
+                <div class="extraPanelContent">
+                    Resource filter:
+                    <select id="loadChartResourceFilter" style="margin: 2px 0px" onchange="loadChartResourceFilterChanged()">
+                        <option value="">(All)</option>
+                    </select>
+                </div>
+            </div>
+            <div id="loadChartView" style="height: 190px">...</div>
+        </div>
+        <div id="pertChartPanel" style="display: none">
+            <div class="extraPanel">
+                <div class="extraPanelCommandsArea">
+                    <div><a href="javascript:closePertChartView();">Close</a></div>
+                </div>
+                <div class="extraPanelHeader">PERT Chart</div>
+            </div>
+            <div id="pertChartView" style="height: 190px">...</div>
+        </div>
+        <div id="networkDiagramPanel" style="display: none">
+            <div class="extraPanel">
+                <div class="extraPanelCommandsArea">
+                    <div><a href="javascript:closeNetworkDiagramView();">Close</a></div>
+                </div>
+                <div class="extraPanelHeader">Network Diagram</div>
+            </div>
+            <div id="networkDiagramView" style="height: 190px">...</div>
+        </div>
+
+        <div id="saveProjectXmlPanel" style="display: none">
+            <div class="extraPanel">
+                <div class="extraPanelCommandsArea">
+                    <div><a href="javascript:closeSaveProjectXml();">Close</a></div>
+                </div>
+                <div class="extraPanelHeader">Export Project XML</div>
+                <div class="extraPanelContent" style="margin: 4px 0px 4px 0px">
+                    View/copy Project XML content:
+                    <div style="margin: 4px 0px 4px 0px">
+                        <textarea id="saveProjectXmlOutput" readonly="readonly" cols="120" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

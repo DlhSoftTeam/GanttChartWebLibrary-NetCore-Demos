@@ -14,6 +14,7 @@ function addNewGanttChartItem() {
     ganttChartView.addItem(item);
     ganttChartView.selectItem(item);
     ganttChartView.scrollToItem(item);
+    ganttChartView.scrollToDateTime(item.start);
     fetch(controllerPath + '/CreateNewGanttChartItem?index=' + item.index);
 }
 function insertNewGanttChartItem() {
@@ -24,6 +25,7 @@ function insertNewGanttChartItem() {
     ganttChartView.insertItem(selectedItem.index, item);
     ganttChartView.selectItem(item);
     ganttChartView.scrollToItem(item);
+    ganttChartView.scrollToDateTime(item.start);
     fetch(controllerPath + '/CreateNewGanttChartItem?index=' + item.index);
 }
 function deleteGanttChartItem() {

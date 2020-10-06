@@ -1,4 +1,5 @@
-# GanttChartWebLibrary-NetCore-Demos
-Demos for .NET Core based components from Gantt Chart Web Library (MVC project)
+# Gantt Chart Web Library – .NET Core Demos
+Sample code that uses the .NET Core based component extensions from Gantt Chart Web Library (MVC project)
 
-[See them live (hosted on DlhSoft Web site)](https://dlhsoft.com/GanttChartWebLibrary/netcore-demos/GanttChartViewMainFeatures)
+[See it in action](https://dlhsoft.com/GanttChartWebLibrary/netcore-demos/GanttChartViewMainFeatures)
+[Product page](https://dlhsoft.com/GanttChartWebLibrary)

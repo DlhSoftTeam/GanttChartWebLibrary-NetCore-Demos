@@ -10,6 +10,6 @@
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DlhSoft.GanttChartWebLibrary" Version="5.3.2.15" />
+    <PackageReference Include="DlhSoft.GanttChartWebLibrary" Version="5.3.3.26" />
   </ItemGroup>
 </Project>

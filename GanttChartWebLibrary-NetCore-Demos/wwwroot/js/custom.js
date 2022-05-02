@@ -6,7 +6,6 @@ function initializeGanttChart(controllerPathValue, viewReference, themeValue) {
     theme = themeValue;
     var settings = ganttChartView.settings;
     initializeGanttChartTheme(settings, theme);
-    initializeGanttChartTemplates(settings, theme);
 }
 
 function addNewGanttChartItem() {

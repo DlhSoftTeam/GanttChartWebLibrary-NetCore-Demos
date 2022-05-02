@@ -8,6 +8,10 @@ function initializeGanttChartTheme(settings, theme) {
     }
     settings.headerHeight = settings.headerHeight ? settings.headerHeight / 21 * 31 : 31 * 2; // 2 scale rows
     settings.itemHeight = settings.itemHeight ? settings.itemHeight / 21 * 28 : 28;
+    settings.barMargin = 4;
+    settings.barHeight = settings.itemHeight - 2 * settings.barMargin;
+    settings.completedBarMargin = 1;
+    settings.completedBarHeight = settings.barHeight - 2 * settings.completedBarMargin;
     settings.barCornerRadius = 1;
     settings.completedBarCornerRadius = 1;
     settings.arrowSize = 2;
@@ -233,4 +237,4 @@ function initializePertChartTheme(settings, theme) {
     settings.milestoneStyle = 'fill: White; stroke: #606060; stroke-width: 1px';
     settings.dependencyLineStyle = 'stroke: #8abbed; stroke-width: 0.65px; fill: none; marker-end: url(#PertArrowMarker)';
     settings.virtualEffortDependencyLineStyle = 'stroke: #8abbed; stroke-width: 0.65px; stroke-dasharray: 2, 2; fill: none; marker-end: url(#PertArrowMarker)';
-}
+}

@@ -164,7 +164,6 @@ function scheduleChart() {
     var scheduleChartSettings = { isReadOnly: true, selectionMode: 'None' };
     var scheduleChartView = document.querySelector('#scheduleChartView');
     initializeGanttChartTheme(scheduleChartSettings, theme);
-    initializeGanttChartTemplates(scheduleChartSettings, theme);
     DlhSoft.Controls.ScheduleChartView.initialize(scheduleChartView, scheduleChartItems, scheduleChartSettings);
 }
 function closeScheduleChartView() {
@@ -224,7 +223,6 @@ function pertChart() {
     var pertChartSettings = { chartMargin: 2, snapRearrangedItemsToGuidelines: false };
     var pertChartView = document.querySelector('#pertChartView');
     initializePertChartTheme(pertChartSettings, theme);
-    initializePertChartTemplates(pertChartSettings, theme);
     DlhSoft.Controls.Pert.PertChartView.initialize(pertChartView, pertChartItems, pertChartSettings);
     var criticalItems = pertChartView.getCriticalItems();
     for (var i = 0; i < criticalItems.length; i++) {
@@ -247,7 +245,6 @@ function networkDiagram() {
     var networkDiagramSettings = { diagramMargin: 2, snapRearrangedItemsToGuidelines: false };
     var networkDiagramView = document.querySelector('#networkDiagramView');
     initializePertChartTheme(networkDiagramSettings, theme);
-    initializePertChartTemplates(networkDiagramSettings, theme);
     DlhSoft.Controls.Pert.NetworkDiagramView.initialize(networkDiagramView, networkDiagramItems, networkDiagramSettings);
     var criticalItems = networkDiagramView.getCriticalItems();
     for (var i = 0; i < criticalItems.length; i++) {

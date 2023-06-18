@@ -6,8 +6,8 @@ function initializeGanttChartTheme(settings, theme) {
         settings.theme = 'Aero';
         return;
     }
-    settings.headerHeight = settings.headerHeight ? settings.headerHeight / 21 * 31 : 31 * 2; // 2 scale rows
-    settings.itemHeight = settings.itemHeight ? settings.itemHeight / 21 * 28 : 28;
+    settings.headerHeight = 31 * 2; // 2 scale rows
+    settings.itemHeight = 28;
     settings.barMargin = 4;
     settings.barHeight = settings.itemHeight - 2 * settings.barMargin;
     settings.completedBarMargin = 1;
@@ -15,7 +15,7 @@ function initializeGanttChartTheme(settings, theme) {
     settings.barCornerRadius = 1;
     settings.completedBarCornerRadius = 1;
     settings.arrowSize = 2;
-    settings.hourWidth = settings.hourWidth ? settings.hourWidth / 2.5 * 5 : 5;
+    settings.hourWidth = 5;
     switch (theme) {
         case 'Generic-bright':
             settings.headerBackground = 'white';
@@ -162,9 +162,9 @@ function initializeGanttChartTheme(settings, theme) {
         settings.toggleButtonHoveringStyle = 'fill: ' + settings.toggleHoveringFill;
     if (!settings.scales) {
         settings.scales = [{ scaleType: 'NonworkingTime', isHeaderVisible: false, isHighlightingVisible: true, highlightingStyle: 'stroke-width: 0; fill: ' + (settings.nonworkingBackground ? settings.nonworkingBackground : '#f8f8f8') + '; fill-opacity: 0.65' },
-                           { scaleType: 'Weeks', headerTextFormat: 'Date', headerStyle: 'padding: 7px 5px; border-right: 1px solid ' + (settings.headerBorder ? settings.headerBorder : '#e8e8e8') + '; border-bottom: 1px solid ' + (settings.headerBorder ? settings.headerBorder : '#e8e8e8') + (settings.headerForeground ? '; color: ' + settings.headerForeground : ''), isSeparatorVisible: true, separatorStyle: 'stroke: ' + (settings.scaleSeparatorBorder ? settings.scaleSeparatorBorder : '#c8bfe7') + '; stroke-width: 0.5px' },
-                           { scaleType: 'Days', headerTextFormat: 'DayOfWeekAbbreviation', headerStyle: 'padding: 7px 5px; border-right: 1px solid ' + (settings.headerBorder ? settings.headerBorder : '#e8e8e8') + (settings.headerForeground ? '; color: ' + settings.headerForeground : '') },
-                           { scaleType: 'CurrentTime', isHeaderVisible: false, isSeparatorVisible: true, separatorStyle: 'stroke: ' + (settings.currentTimeStroke ? settings.currentTimeStroke : '#e31d3b') + '; stroke-width: 0.5px' }];
+        { scaleType: 'Weeks', headerTextFormat: 'Date', headerStyle: 'padding: 7px 5px; border-right: 1px solid ' + (settings.headerBorder ? settings.headerBorder : '#e8e8e8') + '; border-bottom: 1px solid ' + (settings.headerBorder ? settings.headerBorder : '#e8e8e8') + (settings.headerForeground ? '; color: ' + settings.headerForeground : ''), isSeparatorVisible: true, separatorStyle: 'stroke: ' + (settings.scaleSeparatorBorder ? settings.scaleSeparatorBorder : '#c8bfe7') + '; stroke-width: 0.5px' },
+        { scaleType: 'Days', headerTextFormat: 'DayOfWeekAbbreviation', headerStyle: 'padding: 7px 5px; border-right: 1px solid ' + (settings.headerBorder ? settings.headerBorder : '#e8e8e8') + (settings.headerForeground ? '; color: ' + settings.headerForeground : '') },
+        { scaleType: 'CurrentTime', isHeaderVisible: false, isSeparatorVisible: true, separatorStyle: 'stroke: ' + (settings.currentTimeStroke ? settings.currentTimeStroke : '#e31d3b') + '; stroke-width: 0.5px' }];
     }
     else {
         var separatorInitialized = false;
@@ -186,6 +186,7 @@ function initializeGanttChartTheme(settings, theme) {
                         scale.isSeparatorVisible = true;
                         separatorInitialized = true;
                     }
+                    scale.headerHeight = '31px';
                     break;
             }
         }
